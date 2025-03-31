@@ -11,7 +11,7 @@ export default async function Home() {
 
   async function handleClick() {
     "use server";
-    const db = getDB();
+    const db = await getDB();
     const result = await db
       .insert(users)
       .values({ email: "test@example.com", password: "123456" })

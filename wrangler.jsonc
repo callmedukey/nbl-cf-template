@@ -48,8 +48,8 @@
     "bindings": [
       {
         "name": "NEXT_CACHE_REVALIDATION_DURABLE_OBJECT",
-        "class_name": "DurableObjectQueueHandler"
-        // "script_name": "NEXT_CACHE_REVALIDATION_DURABLE_OBJECT"
+        "class_name": "DurableObjectQueueHandler",
+        "script_name": "NEXT_CACHE_REVALIDATION_DURABLE_OBJECT"
       }
     ]
   },
