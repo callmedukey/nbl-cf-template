@@ -6,6 +6,7 @@ import { SignUpSchema, signUpSchema } from "@/schemas/sign-up.schema";
 import { ActionResponse } from "@/types/actions";
 import createSalt from "@/utils/createSalt";
 import { hashPassword } from "@/utils/hashPassword";
+import { verifyCsrfToken } from "@/utils/verifyCsrfToken";
 import { eq } from "drizzle-orm";
 
 export async function signUp(
@@ -83,4 +84,9 @@ export async function signUp(
       message: "Failed to create user",
     };
   }
+}
+
+export async function test() {
+  const valid = await verifyCsrfToken();
+  console.log(valid);
 }

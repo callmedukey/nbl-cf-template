@@ -1,8 +1,9 @@
 "use client";
 
-import { signUp } from "@/actions/auth";
+import { signUp, test } from "@/actions/auth";
 import { SignUpSchema } from "@/schemas/sign-up.schema";
 import { ActionResponse } from "@/types/actions";
+import { getCsrfToken } from "next-auth/react";
 import { useActionState } from "react";
 
 const initialState: ActionResponse<SignUpSchema> = {
@@ -12,7 +13,8 @@ const initialState: ActionResponse<SignUpSchema> = {
 
 export const SignUpForm = () => {
   const [state, action, isPending] = useActionState(signUp, initialState);
-
+  const csrf = getCsrfToken();
+  console.log(csrf);
   console.log(state);
   return (
     <form action={action} className="flex flex-col gap-4">
@@ -36,6 +38,14 @@ export const SignUpForm = () => {
         {state?.errors?.password && <p>{state?.errors.password[0]}</p>}
       </label>
       <button>{isPending ? "Signing up..." : "Sign up"}</button>
+      <button
+        type="button"
+        onClick={async () => {
+          test();
+        }}
+      >
+        123123
+      </button>
     </form>
   );
 };

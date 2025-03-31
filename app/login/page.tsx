@@ -1,4 +1,4 @@
-import { signIn } from "@/auth";
+import { auth, signIn } from "@/auth";
 import { getDB } from "@/db";
 
 const page = async () => {
@@ -6,6 +6,9 @@ const page = async () => {
 
   const user = await db.query.users.findFirst();
 
+  const session = await auth();
+
+  console.log(session);
   return (
     <div className="flex items-center justify-center min-h-screen flex-col">
       {`Logged In: ${user?.name}`}
