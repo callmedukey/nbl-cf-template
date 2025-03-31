@@ -45,6 +45,25 @@ export async function GET(request) {
 const context = await getCloudflareContext({ async: true });
 ```
 
+## Managing Secrets and D1 Database
+
+### Secrets Management
+
+```bash
+# Delete a secret
+npx wrangler secret delete <KEY>
+```
+
+### D1 Database Migrations
+
+```bash
+# Generate migrations (must be done before applying)
+npx drizzle-kit generate
+
+# Apply migrations to remote D1 database
+npx wrangler d1 migrations apply NEXT_TAG_CACHE_D1 --remote
+```
+
 ## ⚠️ Important Warning
 
 During Static Site Generation (SSG), use caution as:

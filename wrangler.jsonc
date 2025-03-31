@@ -28,7 +28,13 @@
     {
       "binding": "NEXT_TAG_CACHE_D1",
       "database_id": "248bd632-e19a-429a-bd1f-e0d9e0cafb3e",
-      "database_name": "cache-d1"
+      "database_name": "cache-d1",
+      "migrations_dir": "db/migrations"
+    },
+    {
+      "binding": "CMS",
+      "database_id": "a37c3cc2-171d-437b-b2aa-64ab503e6886",
+      "database_name": "temp-cms"
     }
   ],
   "services": [
@@ -42,8 +48,8 @@
     "bindings": [
       {
         "name": "NEXT_CACHE_REVALIDATION_DURABLE_OBJECT",
-        "class_name": "DurableObjectQueueHandler",
-        "script_name": "NEXT_CACHE_REVALIDATION_DURABLE_OBJECT"
+        "class_name": "DurableObjectQueueHandler"
+        // "script_name": "NEXT_CACHE_REVALIDATION_DURABLE_OBJECT"
       }
     ]
   },
