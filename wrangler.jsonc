@@ -24,12 +24,12 @@
     }
   ],
   "d1_databases": [
-     // TODO - Add your D1 namespace here, must create on the Cloudflare dashboard
+    // TODO - Add your D1 namespace here, must create on the Cloudflare dashboard
     {
       "binding": "NEXT_TAG_CACHE_D1",
       "database_id": "248bd632-e19a-429a-bd1f-e0d9e0cafb3e",
-      "database_name": "cache-d1",
-    },
+      "database_name": "cache-d1"
+    }
   ],
   "services": [
     {
@@ -41,7 +41,7 @@
   "durable_objects": {
     "bindings": [
       {
-        "name": "NEXT_CACHE_DO_QUEUE",
+        "name": "NEXT_CACHE_REVALIDATION_DURABLE_OBJECT",
         "class_name": "DurableObjectQueueHandler"
       }
     ]
@@ -51,7 +51,7 @@
       "tag": "v1",
       "new_sqlite_classes": ["DurableObjectQueueHandler"]
     }
-  ],
+  ]
   /**
    * Smart Placement
    * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
