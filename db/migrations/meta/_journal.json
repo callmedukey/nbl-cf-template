@@ -29,6 +29,13 @@
       "when": 1743414099505,
       "tag": "0003_wild_sersi",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1743425709622,
+      "tag": "0004_jazzy_living_lightning",
+      "breakpoints": true
     }
   ]
 }

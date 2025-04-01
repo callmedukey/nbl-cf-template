@@ -4,6 +4,7 @@ import { getDB } from "@/db";
 import { users } from "@/db/schemas";
 import { SignUpSchema, signUpSchema } from "@/schemas/sign-up.schema";
 import { ActionResponse } from "@/types/actions";
+import { Role } from "@/types/enums";
 import createSalt from "@/utils/createSalt";
 import { hashPassword } from "@/utils/hashPassword";
 import { verifyCsrfToken } from "@/utils/verifyCsrfToken";
@@ -51,6 +52,9 @@ export async function signUp(
 
   try {
     const hashedPassword = await hashPassword(password, saltBytes);
+
+    const firstUser = await db.query.users.findFirst();
+
     const createdUser = await db
       .insert(users)
       .values([
@@ -59,6 +63,7 @@ export async function signUp(
           name,
           password: hashedPassword.hash,
           salt: hashedPassword.salt, // Use the Base64 encoded salt string
+          role: firstUser ? Role.User : Role.Admin,
         },
       ])
       .returning();
